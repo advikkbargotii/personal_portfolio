@@ -233,12 +233,18 @@ body {
 .gradient-orb {
     width: 350px;
     height: 350px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.3));
+}
+
+.gradient-orb:hover {
+    filter: drop-shadow(0 0 50px rgba(255, 215, 0, 0.5));
+    transform: scale(1.05);
+}
+
+#morph-path {
+    transition: d 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Animations */
