@@ -1,19 +1,4 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
-
-// Smooth scrolling for navigation links
+// Smooth scrolling for dock navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -28,33 +13,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(15, 15, 35, 0.98)';
-    } else {
-        navbar.style.background = 'rgba(15, 15, 35, 0.95)';
-    }
-});
-
-// Active navigation highlight
+// Active dock item highlight on scroll
 window.addEventListener('scroll', () => {
     let current = '';
     const sections = document.querySelectorAll('section');
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (scrollY >= (sectionTop - 200)) {
             current = section.getAttribute('id');
         }
     });
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active');
+    document.querySelectorAll('.dock-item').forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === '#' + current) {
+            item.classList.add('active');
         }
     });
 });
@@ -98,94 +72,6 @@ if (contactForm) {
     });
 }
 
-// Typing animation for hero section
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
-
-// Initialize typing animation when page loads
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    
-    if (heroTitle) {
-        heroTitle.innerHTML = '';
-        
-        // Type out the title
-        setTimeout(() => {
-            typeWriterWithHTML(heroTitle, 'Hi, I\'m <span class="highlight">Advik</span>', 80, () => {
-                // Start typing subtitle after title is done
-                if (heroSubtitle) {
-                    heroSubtitle.style.opacity = '1';
-                    heroSubtitle.innerHTML = '';
-                    setTimeout(() => {
-                        typeWriter(heroSubtitle, 'Software Engineer & AI/ML Developer', 60, () => {
-                            // Animation complete
-                        });
-                    }, 300);
-                }
-            });
-        }, 500);
-    }
-});
-
-// Enhanced typing animation that preserves HTML
-function typeWriterWithHTML(element, finalHTML, speed = 100, callback) {
-    const plainText = 'Hi, I\'m Advik';
-    let i = 0;
-    
-    function type() {
-        if (i < plainText.length) {
-            if (i < 8) {
-                // Type "Hi, I'm " normally
-                element.innerHTML = plainText.substring(0, i + 1);
-            } else {
-                // When we reach "Advik", add the span
-                const beforeSpan = 'Hi, I\'m ';
-                const advikText = plainText.substring(8, i + 1);
-                element.innerHTML = beforeSpan + '<span class="highlight">' + advikText + '</span>';
-            }
-            i++;
-            setTimeout(type, speed);
-        } else {
-            // Ensure final HTML is correct
-            element.innerHTML = finalHTML;
-            if (callback) callback();
-        }
-    }
-    
-    type();
-}
-
-// Simple typing animation for plain text with cursor
-function typeWriter(element, text, speed = 100, callback) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML = text.substring(0, i + 1) + '<span class="typing-cursor">|</span>';
-            i++;
-            setTimeout(type, speed);
-        } else {
-            element.innerHTML = text; // Remove cursor when done
-            if (callback) callback();
-        }
-    }
-    
-    type();
-}
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -211,6 +97,72 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
+    });
+});
+
+// Bento grid mouse-tracking glow effect
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.bento-item').forEach(item => {
+        item.addEventListener('mousemove', (e) => {
+            const rect = item.getBoundingClientRect();
+            item.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            item.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+    });
+});
+
+// Background paths for Languages & Infrastructure card
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.bento-paths-bg');
+    if (!container) return;
+
+    function generatePaths(position) {
+        return Array.from({ length: 36 }, (_, i) => {
+            const p = position;
+            const d = `M-${380 - i * 5 * p} -${189 + i * 6}C-${380 - i * 5 * p} -${189 + i * 6} -${312 - i * 5 * p} ${216 - i * 6} ${152 - i * 5 * p} ${343 - i * 6}C${616 - i * 5 * p} ${470 - i * 6} ${684 - i * 5 * p} ${875 - i * 6} ${684 - i * 5 * p} ${875 - i * 6}`;
+            return { d, opacity: 0.1 + i * 0.03, width: 0.5 + i * 0.03, duration: 20 + Math.random() * 10 };
+        });
+    }
+
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('viewBox', '0 0 696 316');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+
+    [1, -1].forEach(pos => {
+        generatePaths(pos).forEach(p => {
+            const path = document.createElementNS(svgNS, 'path');
+            path.setAttribute('d', p.d);
+            path.setAttribute('stroke', 'currentColor');
+            path.setAttribute('stroke-width', String(p.width));
+            path.setAttribute('stroke-opacity', String(p.opacity));
+            path.setAttribute('pathLength', '1');
+            path.style.animationDuration = `${p.duration}s`;
+            svg.appendChild(path);
+        });
+    });
+
+    container.appendChild(svg);
+});
+
+// About section mockup animations
+const aboutObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-visible');
+
+            const decorative = entry.target.querySelector('.mockup-decorative');
+            const main = entry.target.querySelector('.mockup-main');
+            if (decorative) decorative.style.transform = 'translateY(-30px)';
+            if (main) main.style.transform = 'translateY(30px)';
+        }
+    });
+}, { threshold: 0.2, rootMargin: '0px' });
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-animate="fade-up"]').forEach(el => {
+        aboutObserver.observe(el);
     });
 });
 
@@ -266,42 +218,6 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
-// Particle background effect (optional)
-function createParticles() {
-    const hero = document.querySelector('.hero');
-    const particleCount = 50;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.cssText = `
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.5);
-            pointer-events: none;
-            left: ${Math.random() * 100}%;
-            top: ${Math.random() * 100}%;
-            animation: float ${3 + Math.random() * 4}s ease-in-out infinite;
-            animation-delay: ${Math.random() * 2}s;
-        `;
-        hero.appendChild(particle);
-    }
-    
-    // Add CSS for particle animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
-        }
-        .hero { position: relative; overflow: hidden; }
-    `;
-    document.head.appendChild(style);
-}
-
-// Initialize particles
-document.addEventListener('DOMContentLoaded', createParticles);
 
 // Theme toggle (optional dark mode)
 function toggleTheme() {
@@ -321,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function createScrollToTop() {
     const button = document.createElement('button');
     button.innerHTML = '↑';
-    button.className = 'scroll-to-top';
+    button.className = 'scroll-to-top gradient-btn gradient-btn-round';
     button.style.cssText = `
         position: fixed;
         bottom: 20px;
@@ -329,14 +245,19 @@ function createScrollToTop() {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background: #2563eb;
         color: white;
         border: none;
         font-size: 20px;
         cursor: pointer;
         opacity: 0;
-        transition: opacity 0.3s ease;
         z-index: 1000;
+        --color-1: #000022;
+        --color-2: #1f3f6d;
+        --color-3: #469396;
+        --color-4: #f1ffa5;
+        --border-angle: 200deg;
+        --border-color-1: hsla(320, 75%, 90%, 0.6);
+        --border-color-2: hsla(320, 50%, 90%, 0.15);
     `;
     
     button.addEventListener('click', () => {
@@ -433,4 +354,92 @@ class SolarSystem {
 // Initialize the solar system
 window.addEventListener('DOMContentLoaded', () => {
     new SolarSystem();
+});
+
+// Evervault Card Effects
+document.addEventListener('DOMContentLoaded', () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    function randomStr(len) {
+        let s = '';
+        for (let i = 0; i < len; i++) s += chars[Math.floor(Math.random() * chars.length)];
+        return s;
+    }
+
+    document.querySelectorAll('.ev-card').forEach(card => {
+        const charsLayer = card.querySelector('.ev-chars-layer');
+        const charsOverlay = card.querySelector('.ev-chars-overlay');
+        const area = card.querySelector('.ev-card-area');
+
+        if (charsLayer) {
+            const p = document.createElement('p');
+            p.textContent = randomStr(1500);
+            charsLayer.appendChild(p);
+        }
+        if (charsOverlay) {
+            const p = document.createElement('p');
+            p.textContent = randomStr(1500);
+            charsOverlay.appendChild(p);
+        }
+
+        if (area) {
+            area.addEventListener('mousemove', (e) => {
+                const rect = area.getBoundingClientRect();
+                const mx = e.clientX - rect.left;
+                const my = e.clientY - rect.top;
+                card.style.setProperty('--ev-mx', mx + 'px');
+                card.style.setProperty('--ev-my', my + 'px');
+
+                if (charsLayer && charsLayer.firstChild) charsLayer.firstChild.textContent = randomStr(1500);
+                if (charsOverlay && charsOverlay.firstChild) charsOverlay.firstChild.textContent = randomStr(1500);
+            });
+        }
+    });
+});
+
+// Project Carousel
+document.addEventListener('DOMContentLoaded', () => {
+    const viewport = document.getElementById('projectCarousel');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    const dotsContainer = document.getElementById('carouselDots');
+    if (!viewport) return;
+
+    const slides = viewport.querySelectorAll('.carousel-slide');
+    const slideCount = slides.length;
+    const slideWidth = 340; // card width + gap
+
+    // Generate dots
+    slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', () => {
+            slides[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+    // Update active dot and arrow states on scroll
+    function updateState() {
+        const scrollLeft = viewport.scrollLeft;
+        const activeIndex = Math.round(scrollLeft / slideWidth);
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === activeIndex);
+        });
+        prevBtn.disabled = scrollLeft <= 10;
+        nextBtn.disabled = scrollLeft >= viewport.scrollWidth - viewport.clientWidth - 10;
+    }
+
+    viewport.addEventListener('scroll', updateState, { passive: true });
+    updateState();
+
+    prevBtn.addEventListener('click', () => {
+        viewport.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+        viewport.scrollBy({ left: slideWidth, behavior: 'smooth' });
+    });
 });
