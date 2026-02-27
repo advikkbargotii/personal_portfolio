@@ -58,17 +58,10 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission (replace with actual form handling)
-        alert('Thank you for your message! I\'ll get back to you soon.');
+        const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        window.location.href = `mailto:advikbargoti@arizona.edu?subject=${subject}&body=${body}`;
         this.reset();
-        
-        // In a real implementation, you would send this data to a server
-        // fetch('/submit-form', {
-        //     method: 'POST',
-        //     body: formData
-        // }).then(response => {
-        //     // Handle response
-        // });
     });
 }
 
@@ -170,22 +163,13 @@ document.addEventListener('DOMContentLoaded', () => {
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16);
-    const isInternships = element.parentElement.querySelector('p').textContent === 'Internships';
-    
+
     const timer = setInterval(() => {
         start += increment;
-        if (isInternships) {
-            element.textContent = Math.floor(start);
-        } else {
-            element.textContent = Math.floor(start) + '+';
-        }
-        
+        element.textContent = Math.floor(start) + '+';
+
         if (start >= target) {
-            if (isInternships) {
-                element.textContent = target;
-            } else {
-                element.textContent = target + '+';
-            }
+            element.textContent = target + '+';
             clearInterval(timer);
         }
     }, 16);
@@ -218,20 +202,6 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
-
-// Theme toggle (optional dark mode)
-function toggleTheme() {
-    document.body.classList.toggle('dark-theme');
-    localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
-}
-
-// Load saved theme
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-theme');
-    }
-});
 
 // Add scroll to top button
 function createScrollToTop() {
@@ -277,84 +247,6 @@ function createScrollToTop() {
 
 // Initialize scroll to top button
 document.addEventListener('DOMContentLoaded', createScrollToTop);
-
-// Solar System Animation Controller
-class SolarSystem {
-    constructor() {
-        this.canvas = document.getElementById('solarSystem');
-        this.ctx = this.canvas.getContext('2d');
-        this.scaleFactor = 1;
-        this.planets = [];
-        this.init();
-    }
-
-    init() {
-        this.setupCanvas();
-        this.createPlanets();
-        this.animate();
-    }
-
-    setupCanvas() {
-        const dpr = window.devicePixelRatio || 1;
-        const rect = this.canvas.getBoundingClientRect();
-        this.canvas.width = rect.width * dpr;
-        this.canvas.height = rect.height * dpr;
-        this.ctx.scale(dpr, dpr);
-    }
-
-    createPlanets() {
-        this.planets.push({ name: 'Mercury', radius: 4, distance: 70 });
-        this.planets.push({ name: 'Venus', radius: 7, distance: 100 });
-        this.planets.push({ name: 'Earth', radius: 8, distance: 140 });
-        this.planets.push({ name: 'Mars', radius: 6, distance: 180 });
-        this.planets.push({ name: 'Jupiter', radius: 14, distance: 240 });
-        this.planets.push({ name: 'Saturn', radius: 12, distance: 280 });
-        this.planets.push({ name: 'Uranus', radius: 10, distance: 320 });
-        this.planets.push({ name: 'Neptune', radius: 10, distance: 360 });
-    }
-
-    animate() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.save();
-        this.ctx.translate(this.canvas.width / 2, this.canvas.height / 2);
-
-        const time = new Date();
-
-        this.planets.forEach((planet, index) => {
-            const angle = (time.getSeconds() + time.getMilliseconds() / 1000) * (index + 1) * 0.1;
-
-            const x = Math.cos(angle) * planet.distance * this.scaleFactor;
-            const y = Math.sin(angle) * planet.distance * this.scaleFactor;
-
-            this.ctx.beginPath();
-            this.ctx.arc(x, y, planet.radius * this.scaleFactor, 0, Math.PI * 2);
-            this.ctx.fillStyle = this.getPlanetColor(planet.name);
-            this.ctx.fill();
-        });
-
-        this.ctx.restore();
-        requestAnimationFrame(() => this.animate());
-    }
-
-    getPlanetColor(name) {
-        switch (name) {
-            case 'Mercury': return '#b0b0b0';
-            case 'Venus': return '#e5e5a0';
-            case 'Earth': return '#3d89d9';
-            case 'Mars': return '#a23f3f';
-            case 'Jupiter': return '#d2a679';
-            case 'Saturn': return '#e3b85b';
-            case 'Uranus': return '#76d7d7';
-            case 'Neptune': return '#3d59d9';
-        }
-        return '#ffffff';
-    }
-}
-
-// Initialize the solar system
-window.addEventListener('DOMContentLoaded', () => {
-    new SolarSystem();
-});
 
 // Evervault Card Effects
 document.addEventListener('DOMContentLoaded', () => {
