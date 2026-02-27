@@ -41,30 +41,46 @@ html {
     padding: 0 20px;
 }
 
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(to right, #a5b4fc, #fda4af);
+    z-index: 9999;
+    pointer-events: none;
+    transition: width 0.08s linear;
+}
+
 /* Floating Dock Navigation */
 .dock-container {
     position: fixed;
-    bottom: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 1000;
 }
 
 .dock {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 0.25rem;
     padding: 0.5rem;
     border-radius: 1rem;
-    backdrop-filter: blur(16px);
-    background: rgba(0, 0, 0, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.3s ease;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .dock:hover {
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.45);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
 }
 
 .dock-item {
@@ -82,7 +98,7 @@ html {
 }
 
 .dock-item:hover {
-    transform: scale(1.1) translateY(-2px);
+    transform: scale(1.1) translateX(2px);
     color: white;
 }
 
@@ -98,9 +114,9 @@ html {
 .dock-item::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: calc(100% + 8px);
-    left: 50%;
-    transform: translateX(-50%);
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     background: rgba(30, 30, 30, 0.95);
@@ -118,16 +134,18 @@ html {
 
 /* Dock divider */
 .dock-divider {
-    width: 1px;
-    height: 24px;
-    background: rgba(255, 255, 255, 0.3);
-    margin: 0 4px;
+    width: 24px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 4px 0;
     flex-shrink: 0;
 }
 
 /* Active dock item */
 .dock-item.active {
     color: white;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.12);
 }
 
 @keyframes dockFloat {
@@ -179,6 +197,8 @@ html {
     position: absolute;
     opacity: 0;
     animation: shapeEntrance 2.4s cubic-bezier(0.23, 0.86, 0.39, 0.96) forwards;
+    translate: var(--shape-tx, 0px) var(--shape-ty, 0px);
+    transition: translate 0.9s cubic-bezier(0.23, 0.86, 0.39, 0.96);
 }
 
 /* Inner wrapper: continuous float */
@@ -399,6 +419,36 @@ html {
     justify-content: center;
     opacity: 0;
     animation: contentFadeUp 1s cubic-bezier(0.25, 0.4, 0.25, 1) 1.5s forwards;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: fit-content;
+    z-index: 10;
+    opacity: 0;
+    animation: contentFadeUp 1s cubic-bezier(0.25, 0.4, 0.25, 1) 2.2s forwards;
+    transition: opacity 0.4s ease;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1rem;
+}
+
+.scroll-indicator:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.scroll-indicator-inner {
+    animation: scrollBounce 1.8s ease-in-out 3.2s infinite;
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
 }
 
 /* Content fade-up animation */
@@ -1206,7 +1256,7 @@ html {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding-left: max(20px, calc((100vw - 1200px) / 2 + 20px));
+    padding-left: max(100px, calc((100vw - 1200px) / 2 + 100px));
     padding-right: 20px;
 }
 
@@ -1310,7 +1360,27 @@ html {
 }
 
 .carousel-card {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.carousel-slide:hover .carousel-card::after {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.04);
+}
+
+.carousel-slide:hover .carousel-card {
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
 }
 
 /* Carousel dots */
@@ -1548,12 +1618,29 @@ html {
 }
 
 .contact-form {
-    background: #000000;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+    pointer-events: none;
 }
 
 .form-group {
@@ -1587,10 +1674,45 @@ html {
 /* ===== Footer ===== */
 .footer {
     background-color: #000000;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     color: #e2e8f0;
-    text-align: center;
     padding: 2rem 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-copy {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.875rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.footer-social a {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 600px) {
+    .footer-inner {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
 }
 
 /* ===== Responsive Design ===== */
@@ -1636,4 +1758,66 @@ html {
         height: 405px;
     }
 
+    /* Reduce section vertical padding on tablet/phone */
+    .projects, .experience, .contact { padding: 60px 0; }
+    .skills { padding: 3rem 1rem; }
+    .about-container { padding: 0 1.5rem; }
+}
+
+/* ===== Phone-only overrides (≤ 640px) ===== */
+@media (max-width: 640px) {
+    /* Dock — move to bottom horizontal bar */
+    .dock-container {
+        left: 50%;
+        bottom: 1rem;
+        top: auto;
+        transform: translateX(-50%);
+    }
+
+    .dock {
+        flex-direction: row;
+    }
+
+    /* Flip divider back to vertical */
+    .dock-divider {
+        width: 1px;
+        height: 20px;
+        margin: 0 4px;
+    }
+
+    /* Hide social links + divider from mobile dock (available in footer & contact) */
+    .dock-divider,
+    .dock-divider ~ .dock-item {
+        display: none;
+    }
+
+    /* Tooltip — appears above icons now that dock is at the bottom */
+    .dock-item::after {
+        left: 50%;
+        bottom: calc(100% + 8px);
+        top: auto;
+        transform: translateX(-50%);
+    }
+
+    /* Hover nudge — up instead of right */
+    .dock-item:hover {
+        transform: scale(1.1) translateY(-2px);
+    }
+
+    /* Scroll indicator — push up above the mobile dock */
+    .scroll-indicator {
+        bottom: 5.5rem;
+    }
+
+    /* Carousel — restore normal left padding (dock is no longer on the left) */
+    .carousel-viewport {
+        padding-left: 20px;
+    }
+
+    /* Hero shapes — scaled down for small screens */
+    .shape-1 .shape-float { width: 280px; height: 70px; }
+    .shape-2 .shape-float { width: 240px; height: 60px; }
+    .shape-3 .shape-float { width: 150px; height: 40px; }
+    .shape-4 .shape-float { width: 100px; height: 30px; }
+    .shape-5 { display: none; }
 }

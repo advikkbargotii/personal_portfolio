@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
     <!-- Floating Dock Navigation -->
     <nav class="dock-container">
         <div class="dock">
@@ -74,7 +77,7 @@
 
             <div class="hero-badge">
                 <span class="badge-dot"></span>
-                AI and Software Engineer
+                <span class="badge-text">AI and Software Engineer</span>
             </div>
 
             <p class="hero-description">
@@ -91,6 +94,13 @@
 
         <!-- Top/bottom vignette overlay -->
         <div class="hero-overlay"></div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator" id="scrollIndicator">
+            <div class="scroll-indicator-inner">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
     </section>
 
     <!-- About Section -->
@@ -470,6 +480,17 @@
     </section>
 
     
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p class="footer-copy">© 2026 Advik Bargoti</p>
+            <div class="footer-social">
+                <a href="https://github.com/advikkbargotii" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/advik-bargoti" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:advikbargoti@arizona.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <svg class="hidden" style="display:none">
         <defs>

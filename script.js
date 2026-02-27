@@ -13,24 +13,42 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Active dock item highlight on scroll
+// Scroll: active dock + progress bar + scroll indicator
 window.addEventListener('scroll', () => {
+    // Active dock item
     let current = '';
     const sections = document.querySelectorAll('section');
-    
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         if (scrollY >= (sectionTop - 200)) {
             current = section.getAttribute('id');
         }
     });
-
     document.querySelectorAll('.dock-item').forEach(item => {
         item.classList.remove('active');
         if (item.getAttribute('href') === '#' + current) {
             item.classList.add('active');
         }
     });
+
+    // Scroll progress bar
+    const bar = document.querySelector('.scroll-progress');
+    if (bar) {
+        const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        bar.style.width = pct + '%';
+    }
+
+    // Hide scroll indicator once user scrolls
+    const indicator = document.getElementById('scrollIndicator');
+    if (indicator) {
+        if (window.scrollY > 60) {
+            indicator.style.opacity = '0';
+            indicator.style.pointerEvents = 'none';
+        } else {
+            indicator.style.opacity = '';
+            indicator.style.pointerEvents = '';
+        }
+    }
 });
 
 // Form submission
@@ -247,6 +265,80 @@ function createScrollToTop() {
 
 // Initialize scroll to top button
 document.addEventListener('DOMContentLoaded', createScrollToTop);
+
+// Scroll indicator click — scroll to about section
+document.addEventListener('DOMContentLoaded', () => {
+    const indicator = document.getElementById('scrollIndicator');
+    if (indicator) {
+        indicator.addEventListener('click', () => {
+            document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+});
+
+// Hero mouse parallax on shapes (starts after entrance animations)
+document.addEventListener('DOMContentLoaded', () => {
+    const hero = document.querySelector('.hero');
+    const shapes = document.querySelectorAll('.elegant-shape');
+    if (!hero || !shapes.length) return;
+
+    function applyParallax(e) {
+        const rect = hero.getBoundingClientRect();
+        const dx = (e.clientX - rect.left - rect.width / 2) / rect.width;
+        const dy = (e.clientY - rect.top - rect.height / 2) / rect.height;
+        shapes.forEach((shape, i) => {
+            const depth = (i + 1) * 7;
+            shape.style.setProperty('--shape-tx', `${dx * depth}px`);
+            shape.style.setProperty('--shape-ty', `${dy * depth}px`);
+        });
+    }
+
+    function resetParallax() {
+        shapes.forEach(shape => {
+            shape.style.setProperty('--shape-tx', '0px');
+            shape.style.setProperty('--shape-ty', '0px');
+        });
+    }
+
+    // Delay so entrance animations complete first
+    setTimeout(() => {
+        hero.addEventListener('mousemove', applyParallax);
+        hero.addEventListener('mouseleave', resetParallax);
+    }, 3000);
+});
+
+// Rotating typed text in hero badge
+document.addEventListener('DOMContentLoaded', () => {
+    const roles = ['AI Engineer', 'Full-Stack Developer', 'ML Engineer', 'Automation Engineer'];
+    const el = document.querySelector('.badge-text');
+    if (!el) return;
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const current = roles[roleIndex];
+        charIndex += isDeleting ? -1 : 1;
+        el.textContent = current.substring(0, charIndex);
+
+        let delay = isDeleting ? 50 : 90;
+
+        if (!isDeleting && charIndex === current.length) {
+            delay = 2200;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            delay = 400;
+        }
+
+        setTimeout(type, delay);
+    }
+
+    // Start after badge animation completes
+    setTimeout(type, 2800);
+});
 
 // Evervault Card Effects
 document.addEventListener('DOMContentLoaded', () => {
