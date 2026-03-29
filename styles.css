@@ -911,6 +911,10 @@ html {
     height: 100%;
     background-size: cover;
     background-position: center top;
+    /* Force own compositing layer so Chrome renders it above the parent's backdrop-filter */
+    transform: translateZ(0);
+    position: relative;
+    z-index: 1;
 }
 
 /* Bottom gradient divider */
@@ -967,18 +971,24 @@ html {
     overflow: hidden;
     border-radius: 16px;
     z-index: 0;
+    /* Promote to own GPU layer and limit repaint scope for Chrome */
+    transform: translateZ(0);
+    will-change: transform;
+    contain: layout style paint;
 }
 
 .bento-paths-bg svg {
     width: 100%;
     height: 100%;
     color: white;
+    transform: translateZ(0);
 }
 
 .bento-paths-bg path {
     stroke-dasharray: 1;
     stroke-dashoffset: 0;
     animation: pathFlow linear infinite;
+    will-change: stroke-dashoffset, stroke-dasharray, opacity;
 }
 
 @keyframes pathFlow {

@@ -128,7 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!container) return;
 
     function generatePaths(position) {
-        return Array.from({ length: 36 }, (_, i) => {
+        // Reduced from 36 to 18 paths per direction to avoid Chrome rendering lag
+        return Array.from({ length: 18 }, (_, j) => {
+            const i = j * 2; // Skip every other path to maintain visual spread
             const p = position;
             const d = `M-${380 - i * 5 * p} -${189 + i * 6}C-${380 - i * 5 * p} -${189 + i * 6} -${312 - i * 5 * p} ${216 - i * 6} ${152 - i * 5 * p} ${343 - i * 6}C${616 - i * 5 * p} ${470 - i * 6} ${684 - i * 5 * p} ${875 - i * 6} ${684 - i * 5 * p} ${875 - i * 6}`;
             return { d, opacity: 0.1 + i * 0.03, width: 0.5 + i * 0.03, duration: 20 + Math.random() * 10 };
