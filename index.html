@@ -3,509 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advik Bargoti - Software Engineer & AI/ML Developer</title>
+    <title>Advik Bargoti</title>
+    <meta name="description" content="Advik Bargoti — forward deployed engineer in Tucson, AZ. I work directly with customers to ship AI systems into production. Open to full-time FDE roles.">
+    <meta property="og:title" content="Advik Bargoti">
+    <meta property="og:description" content="Forward deployed engineer in Tucson, AZ. I work directly with customers to ship AI systems into production. Open to full-time FDE roles.">
+    <meta property="og:image" content="https://www.advikbargoti.com/images/me.jpg">
+    <meta property="og:url" content="https://www.advikbargoti.com">
+    <meta name="theme-color" content="#f3f5f3" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#151413" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f5e33'/%3E%3Ctext x='16' y='22.5' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='17' fill='%23f3f5f3' text-anchor='middle'%3Ea%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress"></div>
-
-    <!-- Floating Dock Navigation -->
-    <nav class="dock-container">
-        <div class="dock">
-            <a href="#home" class="dock-item" data-tooltip="Home">
-                <i class="fas fa-home"></i>
-            </a>
-            <a href="#about" class="dock-item" data-tooltip="About">
-                <i class="fas fa-user"></i>
-            </a>
-            <a href="#skills" class="dock-item" data-tooltip="Skills">
-                <i class="fas fa-code"></i>
-            </a>
-            <a href="#projects" class="dock-item" data-tooltip="Projects">
-                <i class="fas fa-folder-open"></i>
-            </a>
-            <a href="#experience" class="dock-item" data-tooltip="Experience">
-                <i class="fas fa-briefcase"></i>
-            </a>
-            <a href="#contact" class="dock-item" data-tooltip="Contact">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <span class="dock-divider"></span>
-            <a href="https://github.com/advikkbargotii" target="_blank" class="dock-item" data-tooltip="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://linkedin.com/in/advik-bargoti" target="_blank" class="dock-item" data-tooltip="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="#top" class="wordmark">Advik Bargoti</a>
+            <nav class="site-nav" aria-label="Sections">
+                <a href="#work">Work</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <!-- Background gradient wash -->
-        <div class="hero-bg-gradient"></div>
-
-        <!-- Floating geometric shapes -->
-        <div class="shapes-container">
-            <div class="elegant-shape shape-1">
-                <div class="shape-float"><div class="shape-visual"></div></div>
-            </div>
-            <div class="elegant-shape shape-2">
-                <div class="shape-float"><div class="shape-visual"></div></div>
-            </div>
-            <div class="elegant-shape shape-3">
-                <div class="shape-float"><div class="shape-visual"></div></div>
-            </div>
-            <div class="elegant-shape shape-4">
-                <div class="shape-float"><div class="shape-visual"></div></div>
-            </div>
-            <div class="elegant-shape shape-5">
-                <div class="shape-float"><div class="shape-visual"></div></div>
-            </div>
-        </div>
-
-        <!-- Hero content -->
-        <div class="hero-container">
-            <h1 class="hero-title">
-                <span class="title-line1">Hi, I'm</span>
-                <br>
-                <span class="title-line2">Advik</span>
-            </h1>
-
-            <div class="hero-badge">
-                <span class="badge-dot"></span>
-                <span class="badge-text">AI and Software Engineer</span>
-            </div>
-
-            <p class="hero-description">
-                Building innovative software solutions and leveraging artificial intelligence 
-                to solve complex problems. I specialize in <span style="color: rgba(255, 255, 255, 0.75);">Full-Stack Development</span>, <span style="color: rgba(255, 255, 255, 0.75);">Workflow Automations</span>, <span style="color: rgba(255, 255, 255, 0.75);">Agentic Systems</span>, and <span style="color: rgba(255, 255, 255, 0.75);">AI-powered Applications</span>.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-            </div>
-
-        </div>
-
-        <!-- Top/bottom vignette overlay -->
-        <div class="hero-overlay"></div>
-
-        <!-- Scroll indicator -->
-        <div class="scroll-indicator" id="scrollIndicator">
-            <div class="scroll-indicator-inner">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="about-container">
-            <div class="about-grid">
-                <!-- Text Content -->
-                <div class="about-text-col" data-animate="fade-up">
-                    <h2 class="about-title">About Me</h2>
-                    <p class="about-description">
-                        Computer Science student at the University of Arizona with growing expertise in AI/ML development and full-stack engineering. 
-                        I've led development teams, built innovative applications, and created advanced AI systems 
-                        including autonomous security agents and enterprise bias detection platforms.
-                    </p>
-                    <p class="about-description">
-                        My expertise spans from building scalable web applications with React and Django to developing sophisticated machine learning 
-                        models with TensorFlow and PyTorch. I thrive on solving complex technical challenges and transforming innovative ideas into 
-                        real-world solutions that make a meaningful impact.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <h3>5+</h3>
-                            <p>Major Projects</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>3+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>25+</h3>
-                            <p>Technologies Mastered</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mockup Image Content -->
-                <div class="about-mockup-col" data-animate="fade-up">
-                    <div class="mockup-decorative" data-parallax="up" style="background-image: url('images/me.jpeg');"></div>
-                    <div class="mockup-main" data-parallax="down">
-                        <div class="mockup-image" style="background-image: url('images/me.jpeg');"></div>
-                    </div>
+    <main id="top">
+        <!-- Intro -->
+        <section id="intro" class="intro wrap">
+            <div class="intro-text">
+                <p class="eyebrow">B.S. Computer Science, University of Arizona '26 · Tucson, AZ</p>
+                <h1 class="intro-title">
+                    Hi, I'm Advik. I'm a <em>forward deployed engineer</em> who ships AI systems into real customer workflows.
+                </h1>
+                <p class="intro-body">
+                    At RevenueStream AI I lead a team of three and work directly with client billing teams,
+                    turning their workflows into fully automated healthcare claims systems with alerting, guardrails,
+                    and fallback protocols. They've submitted <span class="figure"><span class="count" data-to="2000">2,000</span>+</span> claims totaling <span class="figure">$<span class="count" data-to="6">6</span>M+</span> billed.
+                    I graduated in May 2026 and I'm looking for full-time forward deployed engineering roles.
+                </p>
+                <div class="intro-links">
+                    <a class="btn" href="mailto:bargotiadvik@gmail.com">Email me</a>
+                    <a class="text-link" href="https://github.com/advikkbargotii" target="_blank" rel="noopener">GitHub ↗</a>
+                    <a class="text-link" href="https://linkedin.com/in/advik-bargoti" target="_blank" rel="noopener">LinkedIn ↗</a>
                 </div>
             </div>
-        </div>
+            <figure class="intro-photo">
+                <span class="photo-sticker" aria-hidden="true">👾</span>
+                <img src="images/me.jpg" alt="Advik in a leather jacket at a Yosemite overlook, with granite cliffs and clouds behind him" width="720" height="900">
+                <figcaption>Yosemite, CA</figcaption>
+            </figure>
+        </section>
 
-        <div class="about-bottom-gradient"></div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="bento-container">
-            <h2 class="section-title">Technical Skills</h2>
-            <p class="section-description">Languages, frameworks, and tools I work with across the full stack and beyond.</p>
-
-            <div class="bento-grid">
-                <div class="bento-item bento-span-2x2" id="bento-paths-card">
-                    <div class="bento-paths-bg"></div>
-                    <div class="bento-item-inner">
-                        <div class="bento-icon"><i class="fas fa-code"></i></div>
-                        <h3 class="bento-title">Languages & Infrastructure</h3>
-                        <p class="bento-desc">Core languages and cloud technologies I use to build and deploy production systems.</p>
-                        <div class="skill-items">
-                            <span class="skill-item">Python</span>
-                            <span class="skill-item">JavaScript</span>
-                            <span class="skill-item">TypeScript</span>
-                            <span class="skill-item">Java</span>
-                            <span class="skill-item">C</span>
-                            <span class="skill-item">Swift</span>
-                            <span class="skill-item">SQL</span>
-                            <span class="skill-item">MIPS</span>
-                            <span class="skill-item">AWS</span>
-                            <span class="skill-item">Google Cloud</span>
-                            <span class="skill-item">Docker</span>
-                            <span class="skill-item">Kubernetes</span>
-                            <span class="skill-item">Git/Vercel</span>
-                            <span class="skill-item">Firebase</span>
-                            <span class="skill-item">MongoDB</span>
-                            <span class="skill-item">PostgreSQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bento-item">
-                    <div class="bento-item-inner">
-                        <div class="bento-icon"><i class="fas fa-brain"></i></div>
-                        <h3 class="bento-title">AI/ML & Data Science</h3>
-                        <p class="bento-desc">Frameworks and tools for building intelligent systems and ML pipelines.</p>
-                        <div class="skill-items">
-                            <span class="skill-item">TensorFlow</span>
-                            <span class="skill-item">PyTorch</span>
-                            <span class="skill-item">OpenCV</span>
-                            <span class="skill-item">LangChain</span>
-                            <span class="skill-item">FAISS</span>
-                            <span class="skill-item">GenKit</span>
-                            <span class="skill-item">Scikit-learn</span>
-                            <span class="skill-item">Pandas</span>
-                            <span class="skill-item">DialogFlow</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bento-item">
-                    <div class="bento-item-inner">
-                        <div class="bento-icon"><i class="fas fa-server"></i></div>
-                        <h3 class="bento-title">Web & Backend</h3>
-                        <p class="bento-desc">Modern stacks for scalable frontend and backend development.</p>
-                        <div class="skill-items">
-                            <span class="skill-item">React</span>
-                            <span class="skill-item">Django</span>
-                            <span class="skill-item">Next.js</span>
-                            <span class="skill-item">Node.js</span>
-                            <span class="skill-item">Express.js</span>
-                            <span class="skill-item">FastAPI</span>
-                            <span class="skill-item">RESTful APIs</span>
-                            <span class="skill-item">GraphQL</span>
-                        </div>
-                    </div>
-                </div>
+        <!-- Experience -->
+        <section id="work" class="section wrap">
+            <div class="section-head">
+                <h2 class="section-title">Work</h2>
+                <p class="section-note">Shipping alongside customers, founders, and researchers.</p>
             </div>
-        </div>
-    </section>
+            <ol class="timeline">
+                <li class="timeline-row">
+                    <span class="timeline-date">Aug 2026 — now</span>
+                    <div>
+                        <h3 class="timeline-role">Forward Deployed Engineer &amp; Team Lead</h3>
+                        <p class="timeline-org">RevenueStream AI (American Medical Compliance)</p>
+                        <ul class="timeline-notes">
+                            <li>Embedded with client billing teams: I work with billers directly to resolve denials and data issues, and lead a team of three engineers.</li>
+                            <li>Deployed a Python claims pipeline on AWS EC2 that turns each client's EHR extracts into 837P/837I transactions and submits them through Availity, with PHI isolated per client. 2,000+ claims, $6M+ billed.</li>
+                            <li>Designed the alerting, guardrails, and fallback protocols that keep every pipeline fully automated, plus a claims ledger that blocks duplicate submissions. Payers accepted 92% of acknowledged claims.</li>
+                            <li>Built a routing layer that picks Availity batch, SOAP, or REST per payer, and a voice support agent with ElevenLabs and Twilio.</li>
+                        </ul>
+                    </div>
+                    <p class="timeline-tags">Python, AWS, X12 EDI, Availity</p>
+                </li>
+                <li class="timeline-row">
+                    <span class="timeline-date">Jan — May 2026</span>
+                    <div>
+                        <h3 class="timeline-role">AI Automation Engineer</h3>
+                        <p class="timeline-org">RevenueStream AI (American Medical Compliance)</p>
+                        <ul class="timeline-notes">
+                            <li>Stood up client-facing infrastructure: SFTP intake and admin portal servers on AWS Lightsail, hardened with two firewall layers and per-client SSH keys.</li>
+                            <li>Migrated eligibility and claim status pipelines to a production clearinghouse API and ran checks on 3,443 patient records across five major payers.</li>
+                        </ul>
+                    </div>
+                    <p class="timeline-tags">n8n, REST APIs, OAuth2, AWS Lightsail</p>
+                </li>
+                <li class="timeline-row">
+                    <span class="timeline-date">Oct 2025 — May 2026</span>
+                    <div>
+                        <h3 class="timeline-role">Founding Engineer</h3>
+                        <p class="timeline-org">SkillfullyAware (SAAQ)</p>
+                        <ul class="timeline-notes">
+                            <li>Worked directly with the founders, psychologists, and designers to turn behavioral frameworks into product features.</li>
+                            <li>Built the Python backend and React frontend for an AI coaching platform that turns psychologist-scored assessments into personalized leadership insights.</li>
+                        </ul>
+                    </div>
+                    <p class="timeline-tags">Python, OpenAI API, React, TypeScript</p>
+                </li>
+                <li class="timeline-row">
+                    <span class="timeline-date">Aug 2025 — May 2026</span>
+                    <div>
+                        <h3 class="timeline-role">Undergraduate Research Intern</h3>
+                        <p class="timeline-org">Dept. of ECE, University of Arizona</p>
+                        <ul class="timeline-notes">
+                            <li>Fixed motion capture defects that skewed surgical performance scores in CAST III, a laparoscopic surgery simulator.</li>
+                        </ul>
+                    </div>
+                    <p class="timeline-tags">Motion capture, simulation</p>
+                </li>
+                <li class="timeline-row">
+                    <span class="timeline-date">Jan — May 2025</span>
+                    <div>
+                        <h3 class="timeline-role">Undergraduate Teaching Assistant</h3>
+                        <p class="timeline-org">Dept. of CS, University of Arizona</p>
+                        <ul class="timeline-notes">
+                            <li>Supported 40+ students in computer architecture.</li>
+                        </ul>
+                    </div>
+                    <p class="timeline-tags">Memory management, concurrency</p>
+                </li>
+                <li class="timeline-row">
+                    <span class="timeline-date">Nov 2021 — Jan 2022</span>
+                    <div>
+                        <h3 class="timeline-role">Software Engineering Intern</h3>
+                        <p class="timeline-org">Unbox Innovations</p>
+                    </div>
+                    <p class="timeline-tags">React, Django, AWS, REST APIs</p>
+                </li>
+                <li class="timeline-row">
+                    <span class="timeline-date">May — Aug 2021</span>
+                    <div>
+                        <h3 class="timeline-role">Machine Learning Intern</h3>
+                        <p class="timeline-org">AI Educator</p>
+                    </div>
+                    <p class="timeline-tags">Python, CNNs, image recognition</p>
+                </li>
+            </ol>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="carousel-header">
+        <!-- Projects -->
+        <section id="projects" class="section wrap">
+            <div class="section-head">
+                <h2 class="section-title">Projects</h2>
+                <p class="section-note">Things I've shipped for hackathons, classes, and myself.</p>
+            </div>
+            <ul class="projects">
+                <li class="project">
+                    <span class="project-num">01</span>
+                    <div class="project-main">
+                        <h3 class="project-name">Secura</h3>
+                        <p class="project-desc">An agent that runs Bandit and Semgrep on a repo, pulls relevant code context from a FAISS index, and opens pull requests with drafted fixes.</p>
+                        <p class="project-stack">Python · LangChain · FAISS · Bandit · Semgrep · GitHub API</p>
+                    </div>
+                    <a class="project-link" href="https://github.com/advikkbargotii" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
+                </li>
+                <li class="project">
+                    <span class="project-num">02</span>
+                    <div class="project-main">
+                        <h3 class="project-name">BiasXRay</h3>
+                        <p class="project-desc">A dashboard and Chrome extension that use Gemini to flag possible bias and hallucinations in text for inline review.</p>
+                        <p class="project-stack">Next.js · TypeScript · Firebase · Google Gemini</p>
+                    </div>
+                    <a class="project-link" href="https://github.com/advikkbargotii/BiasXRay-NEW" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
+                </li>
+                <li class="project">
+                    <span class="project-num">03</span>
+                    <div class="project-main">
+                        <h3 class="project-name">OneLiner <span class="project-badge">Reddit Hackathon</span></h3>
+                        <p class="project-desc">A full-stack Reddit app, built for 1,000+ potential users.</p>
+                        <p class="project-stack">Express.js · Redis · React 19 · Tailwind CSS</p>
+                    </div>
+                </li>
+                <li class="project">
+                    <span class="project-num">04</span>
+                    <div class="project-main">
+                        <h3 class="project-name">Automated Sexism Detection</h3>
+                        <p class="project-desc">End-to-end ML pipeline that classifies sexist content in online text, aimed at real-world moderation.</p>
+                        <p class="project-stack">ML pipeline · NLP</p>
+                    </div>
+                    <a class="project-link" href="https://github.com/advikkbargotii/CSC380-FP" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
+                </li>
+                <li class="project">
+                    <span class="project-num">05</span>
+                    <div class="project-main">
+                        <h3 class="project-name">Personal Finance Assistant</h3>
+                        <p class="project-desc">Budgeting desktop app with CSV import/export, built and tested with a team of four.</p>
+                        <p class="project-stack">Java Swing · JUnit</p>
+                    </div>
+                    <a class="project-link" href="https://github.com/advikkbargotii/CSC335-Final-Project" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
+                </li>
+                <li class="project">
+                    <span class="project-num">06</span>
+                    <div class="project-main">
+                        <h3 class="project-name">Pet Cafe Information System</h3>
+                        <p class="project-desc">Two-tier database system with a Java client for full CRUD workflows and operational reports.</p>
+                        <p class="project-stack">Oracle · JDBC · SQL</p>
+                    </div>
+                    <a class="project-link" href="https://github.com/DanWaur/PetCafeDatabase" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Toolbox -->
+        <section class="section wrap">
+            <div class="section-head">
+                <h2 class="section-title">Toolbox</h2>
+                <p class="section-note">What I reach for most.</p>
+            </div>
+            <div class="toolbox">
                 <div>
-                    <h2 class="section-title carousel-title">Featured Projects</h2>
-                    <p class="carousel-description">A collection of projects spanning AI/ML, full-stack development, and database systems.</p>
+                    <h3 class="toolbox-label">Languages</h3>
+                    <p>Python, TypeScript, JavaScript, SQL, Java</p>
                 </div>
-                <div class="carousel-arrows">
-                    <button class="carousel-arrow" id="carouselPrev" aria-label="Previous slide">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                    <button class="carousel-arrow" id="carouselNext" aria-label="Next slide">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
+                <div>
+                    <h3 class="toolbox-label">AI &amp; automation</h3>
+                    <p>Claude, Anthropic API, cron automations, LangChain, FAISS, RAG, ElevenLabs, Twilio, n8n</p>
                 </div>
-            </div>
-        </div>
-        <div class="carousel-viewport" id="projectCarousel">
-            <div class="carousel-track">
-                <a href="https://github.com/advikkbargotii" target="_blank" class="carousel-slide">
-                    <div class="carousel-card" style="background-image: url('images/autosecops.jpg');">
-                        <div class="carousel-card-gradient"></div>
-                        <div class="carousel-card-content">
-                            <h3>Secura</h3>
-                            <p>AI security agents for automated vulnerability detection and patching using LangChain, FAISS, and custom RAG pipelines.</p>
-                            <span class="carousel-card-link">View Code <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="carousel-slide">
-                    <div class="carousel-card" style="background-image: url('images/oneliner.jpg');">
-                        <div class="carousel-card-gradient"></div>
-                        <div class="carousel-card-content">
-                            <h3>OneLiner | Reddit Hackathon</h3>
-                            <p>Full-stack Reddit application built with Express.js, Redis, React 19, and Tailwind CSS, serving 1,000+ potential users.</p>
-                            <span class="carousel-card-link">View Code <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/advikkbargotii/BiasXRay-NEW" target="_blank" class="carousel-slide">
-                    <div class="carousel-card" style="background-image: url('images/biasxray.jpg');">
-                        <div class="carousel-card-gradient"></div>
-                        <div class="carousel-card-content">
-                            <h3>BiasXRay</h3>
-                            <p>Enterprise-grade bias and hallucination detection system with dashboards and a Chrome extension.</p>
-                            <span class="carousel-card-link">View Code <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/advikkbargotii/CSC335-Final-Project" target="_blank" class="carousel-slide">
-                    <div class="carousel-card" style="background-image: url('images/personalfinanceassistant.jpg');">
-                        <div class="carousel-card-gradient"></div>
-                        <div class="carousel-card-content">
-                            <h3>Personal Finance Assistant</h3>
-                            <p>Java Swing budget management app with CSV import/export and comprehensive JUnit testing in a 4-person team.</p>
-                            <span class="carousel-card-link">View Code <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/DanWaur/PetCafeDatabase" target="_blank" class="carousel-slide">
-                    <div class="carousel-card" style="background-image: url('images/petcafeinformationsystem.jpg');">
-                        <div class="carousel-card-gradient"></div>
-                        <div class="carousel-card-content">
-                            <h3>Pet Cafe Information System</h3>
-                            <p>Two-tier Oracle database system with Java JDBC client for full CRUD workflows and operational analytics.</p>
-                            <span class="carousel-card-link">View Code <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/advikkbargotii/CSC380-FP" target="_blank" class="carousel-slide">
-                    <div class="carousel-card" style="background-image: url('images/automatedsexismdetection.jpg');">
-                        <div class="carousel-card-gradient"></div>
-                        <div class="carousel-card-content">
-                            <h3>Automated Sexism Detection</h3>
-                            <p>End-to-end ML pipeline for classifying sexist content in online text, targeting real-world content moderation.</p>
-                            <span class="carousel-card-link">View Code <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="carousel-dots" id="carouselDots"></div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="ev-container">
-            <h2 class="section-title">Experience</h2>
-            <p class="section-description">Roles and positions where I've applied and grown my engineering skills.</p>
-
-            <div class="ev-grid">
-                <div class="ev-card">
-                    <svg class="ev-corner ev-tl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-tr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-bl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-br" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <div class="ev-card-area">
-                        <div class="ev-chars-layer"></div>
-                        <div class="ev-gradient-layer"></div>
-                        <div class="ev-chars-overlay"></div>
-                    </div>
-                    <div class="ev-content">
-                        <span class="ev-date">Jan 2026 – Present</span>
-                        <h3 class="ev-role">AI Automations Engineer Intern</h3>
-                        <h4 class="ev-company">American Medical Compliance</h4>
-                        <p class="ev-tag">n8n · LLMs · REST APIs · Google Sheets</p>
-                    </div>
+                <div>
+                    <h3 class="toolbox-label">Web &amp; data</h3>
+                    <p>React, Next.js, Node.js, Express.js, REST APIs, OAuth2, Webhooks, SOAP, batch transactions, PostgreSQL</p>
                 </div>
-
-                <div class="ev-card">
-                    <svg class="ev-corner ev-tl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-tr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-bl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-br" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <div class="ev-card-area">
-                        <div class="ev-chars-layer"></div>
-                        <div class="ev-gradient-layer"></div>
-                        <div class="ev-chars-overlay"></div>
-                    </div>
-                    <div class="ev-content">
-                        <span class="ev-date">Oct 2025 – Present</span>
-                        <h3 class="ev-role">Co-Founding Engineer</h3>
-                        <h4 class="ev-company">SAAQ Emotional Awareness Platform</h4>
-                        <p class="ev-tag">React · TypeScript · UI/UX · Data Pipelines</p>
-                    </div>
+                <div>
+                    <h3 class="toolbox-label">Infrastructure</h3>
+                    <p>AWS (EC2, Lightsail, Lambda, S3), Docker, Linux, SFTP, Git, GitHub Actions</p>
                 </div>
-
-                <div class="ev-card">
-                    <svg class="ev-corner ev-tl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-tr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-bl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-br" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <div class="ev-card-area">
-                        <div class="ev-chars-layer"></div>
-                        <div class="ev-gradient-layer"></div>
-                        <div class="ev-chars-overlay"></div>
-                    </div>
-                    <div class="ev-content">
-                        <span class="ev-date">Aug 2025 – Present</span>
-                        <h3 class="ev-role">Undergraduate Research Intern</h3>
-                        <h4 class="ev-company">Dept of ECE – University of Arizona</h4>
-                        <p class="ev-tag">Motion Tracking · Simulation · CAST System</p>
-                    </div>
-                </div>
-
-                <div class="ev-card">
-                    <svg class="ev-corner ev-tl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-tr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-bl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-br" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <div class="ev-card-area">
-                        <div class="ev-chars-layer"></div>
-                        <div class="ev-gradient-layer"></div>
-                        <div class="ev-chars-overlay"></div>
-                    </div>
-                    <div class="ev-content">
-                        <span class="ev-date">Jan 2025 – May 2025</span>
-                        <h3 class="ev-role">Undergraduate Teaching Assistant</h3>
-                        <h4 class="ev-company">Dept of CS – University of Arizona</h4>
-                        <p class="ev-tag">Computer Architecture · Memory Mgmt · Concurrency</p>
-                    </div>
-                </div>
-
-                <div class="ev-card">
-                    <svg class="ev-corner ev-tl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-tr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-bl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-br" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <div class="ev-card-area">
-                        <div class="ev-chars-layer"></div>
-                        <div class="ev-gradient-layer"></div>
-                        <div class="ev-chars-overlay"></div>
-                    </div>
-                    <div class="ev-content">
-                        <span class="ev-date">Nov 2021 – Jan 2022</span>
-                        <h3 class="ev-role">SWE Intern</h3>
-                        <h4 class="ev-company">Unbox Innovations</h4>
-                        <p class="ev-tag">React · Django · AWS · REST APIs</p>
-                    </div>
-                </div>
-
-                <div class="ev-card">
-                    <svg class="ev-corner ev-tl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-tr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-bl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <svg class="ev-corner ev-br" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                    <div class="ev-card-area">
-                        <div class="ev-chars-layer"></div>
-                        <div class="ev-gradient-layer"></div>
-                        <div class="ev-chars-overlay"></div>
-                    </div>
-                    <div class="ev-content">
-                        <span class="ev-date">May 2021 – Aug 2021</span>
-                        <h3 class="ev-role">Machine Learning Intern</h3>
-                        <h4 class="ev-company">AI Educator</h4>
-                        <p class="ev-tag">Python · CNN · Image Recognition · ML Pipelines</p>
-                    </div>
+                <div>
+                    <h3 class="toolbox-label">Healthcare</h3>
+                    <p>X12 EDI (837P, 837I, 270/271, 276/277CA, 278), Availity, revenue cycle management, HIPAA</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p class="section-description">Have a project in mind or just want to chat? I'd love to hear from you.</p>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <p>I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology!</p>
-                    <div class="contact-items">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>advikbargoti@arizona.edu</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>(619) 254-6625</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>New York, New York</span>
-                        </div>
-                    </div>
-                    <div class="contact-social">
-                        <a href="https://github.com/advikkbargotii" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/advik-bargoti" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="mailto:advikbargoti@arizona.edu" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+        <!-- Contact -->
+        <section id="contact" class="contact wrap">
+            <h2 class="contact-title">Say hello:)</h2>
+            <p class="contact-body">I'm looking for full-time forward deployed engineering roles, where I can work directly with customers and own a system all the way to production. Email is the fastest way to reach me.</p>
+            <div class="contact-row">
+                <a class="contact-email" href="mailto:bargotiadvik@gmail.com">bargotiadvik@gmail.com</a>
+                <button class="copy-btn" type="button" data-copy="bargotiadvik@gmail.com">Copy</button>
             </div>
-        </div>
-    </section>
+            <p class="contact-meta">
+                <a href="https://github.com/advikkbargotii" target="_blank" rel="noopener">GitHub</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://linkedin.com/in/advik-bargoti" target="_blank" rel="noopener">LinkedIn</a>
+            </p>
+        </section>
+    </main>
 
-    
-
-    <footer class="footer">
-        <div class="container footer-inner">
-            <p class="footer-copy">© 2026 Advik Bargoti</p>
-            <div class="footer-social">
-                <a href="https://github.com/advikkbargotii" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/advik-bargoti" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:advikbargoti@arizona.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
+    <footer class="wrap">
+        <div class="site-footer">
+            <p>© <span id="year">2026</span> Advik Bargoti</p>
+            <a href="#top">Back to top ↑</a>
         </div>
     </footer>
 
-    <svg class="hidden" style="display:none">
-        <defs>
-            <filter id="container-glass" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
-                <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence"/>
-                <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise"/>
-                <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced"/>
-                <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur"/>
-                <feComposite in="finalBlur" in2="finalBlur" operator="over"/>
-            </filter>
-        </defs>
-    </svg>
-
-    <script src="https://unpkg.com/flubber"></script>
     <script src="script.js"></script>
-    <script src="morph.js"></script>
 </body>
 </html>
